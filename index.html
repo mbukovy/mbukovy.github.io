@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michal Bukový - Product & Venture Builder</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@1,8..60,400&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#F3F0E7',
+            text: '#111111',
+            sec: '#69665F',
+            primary: '#FF4D00',
+            blue: '#3155FF',
+            dark: '#181817',
+            light: '#F3F0E7',
+            border: 'rgba(17, 17, 17, 0.12)'
+          },
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            mono: ['IBM Plex Mono', 'monospace'],
+            serif: ['Source Serif 4', 'serif'],
+          },
+          fontSize: {
+            'hero-desktop': ['clamp(48px, 6.2vw, 100px)', '0.95'],
+            'hero-tablet': ['clamp(40px, 5.5vw, 72px)', '1'],
+            'hero-mobile': ['38px', '1.05'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: theme('colors.bg');
+      color: theme('colors.text');
+      position: relative;
+    }
+
+    /* Subtle premium noise texture — scrolls with page (not fixed) */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Modern text highlighting - no white text, just beautiful soft background tint */
+    ::selection {
+      background-color: rgba(255, 77, 0, 0.16);
+      color: inherit;
+    }
+
+    /* Subtle line-art utility styles */
+    .bt-subtle {
+      border-top: 1px solid theme('colors.border');
+    }
+
+    .bb-subtle {
+      border-bottom: 1px solid theme('colors.border');
+    }
+
+    .bl-subtle {
+      border-left: 1px solid theme('colors.border');
+    }
+
+    .pill-btn {
+      border-radius: 9999px;
+    }
+
+    /* Reveal scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .abstract-grid {
+      background-size: 20px 20px;
+      background-image: linear-gradient(to right, rgba(17, 17, 17, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(17, 17, 17, 0.04) 1px, transparent 1px);
+    }
+
+    .abstract-grid-dark {
+      background-size: 20px 20px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+  </style>
+</head>
+
+<body class="antialiased font-sans overflow-x-hidden">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full top-0 z-50 bg-transparent px-6 py-6 transition-all duration-300 text-text" id="navbar">
+    <div class="max-w-[1340px] mx-auto flex justify-between items-center">
+      <a href="#" class="font-bold text-xl tracking-tight hover:text-primary transition-colors">Michal Bukový</a>
+
+      <div class="hidden md:flex space-x-10 font-mono text-[11px] uppercase tracking-widest font-medium">
+        <a href="#pristup" class="hover:text-primary transition-colors">Přístup</a>
+        <a href="#sluzby" class="hover:text-primary transition-colors">Služby</a>
+        <a href="#projekty" class="hover:text-primary transition-colors">Projekty</a>
+        <a href="#o-mne" class="hover:text-primary transition-colors">O mně</a>
+      </div>
+
+      <div class="hidden md:block font-mono text-[11px] uppercase tracking-widest font-medium">
+        <a href="#kontakt" class="hover:text-primary transition-colors">
+          Probrat příležitost &rarr;
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center pt-32 pb-16 px-6 max-w-[1340px] mx-auto">
+    <div class="grid lg:grid-cols-12 gap-16 lg:gap-8 items-center h-full">
+      <!-- Left Column: Copy -->
+      <div class="lg:col-span-7 z-10">
+        <div class="font-mono text-primary text-xs mb-6 uppercase tracking-[0.25em] font-medium">Product & Venture
+          Builder</div>
+        <h1
+          class="text-hero-mobile md:text-hero-tablet lg:text-hero-desktop font-medium mb-8 tracking-tighter leading-[0.95]">
+          Váš další produkt se možná už teď skrývá uvnitř vaší firmy.
+        </h1>
+        <p class="text-sec text-lg md:text-xl max-w-2xl mb-12 leading-snug font-light">
+          Pomáhám zavedeným firmám najít a postavit nový digitální produkt nad tím, co už mají - zákazníky, daty,
+          know-how a distribucí. Od první příležitosti až po funkční produkt.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-12">
+          <a href="#kontakt"
+            class="bg-primary text-white px-8 py-4 pill-btn text-xs font-bold uppercase tracking-widest hover:bg-[#e64500] transition-transform hover:-translate-y-0.5">
+            Probrat příležitost
+          </a>
+          <a href="#projekty"
+            class="border border-border text-text px-8 py-4 pill-btn text-xs font-bold uppercase tracking-widest hover:bg-white transition-transform hover:-translate-y-0.5">
+            Vybrané projekty
+          </a>
+        </div>
+
+        <div class="font-mono text-[11px] text-sec uppercase tracking-[0.25em] flex items-center gap-2">
+          <span>OBJEVIT</span>
+          <span class="text-primary">&rarr;</span>
+          <span>OVĚŘIT</span>
+          <span class="text-primary">&rarr;</span>
+          <span>POSTAVIT</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Personal Card & Tech Graphics overlay -->
+      <div class="lg:col-span-5 w-full flex flex-col items-center lg:items-end justify-center">
+        <div
+          class="relative w-full max-w-[420px] aspect-[4/5] border border-border bg-white/40 p-6 flex flex-col justify-between relative group shadow-sm">
+          <!-- Abstract Grid Overlay -->
+          <div class="absolute inset-0 abstract-grid opacity-40 pointer-events-none"></div>
+
+          <!-- Fine corner indicators -->
+          <div class="absolute top-3 left-3 font-mono text-[9px] text-sec/30 pointer-events-none select-none">+</div>
+          <div class="absolute top-3 right-3 font-mono text-[9px] text-sec/30 pointer-events-none select-none">+</div>
+          <div class="absolute bottom-3 left-3 font-mono text-[9px] text-sec/30 pointer-events-none select-none">+</div>
+          <div class="absolute bottom-3 right-3 font-mono text-[9px] text-sec/30 pointer-events-none select-none">+
+          </div>
+
+          <!-- Outer Decorative Accent Offset -->
+          <div
+            class="absolute -top-3 -right-3 w-full h-full border border-primary/20 pointer-events-none group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-500">
+          </div>
+
+          <!-- Monospace Technical Top Header -->
+          <div
+            class="flex justify-between items-center z-10 font-mono text-[9px] text-sec uppercase tracking-widest border-b border-border/60 pb-3">
+            <span>[ROLE: VENTURE_BUILDER]</span>
+            <span class="text-primary flex items-center gap-1 font-bold">
+              <span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+              AKTIVNÍ 2026
+            </span>
+          </div>
+
+          <!-- Portrait Frame -->
+          <div class="my-4 relative w-full h-64 overflow-hidden border border-border bg-bg shadow-inner z-10">
+            <img src="./michal.jpg" alt="Michal Bukový"
+              class="w-full h-full object-cover filter grayscale contrast-[1.12] brightness-[0.98] sepia-[10%] group-hover:grayscale-0 group-hover:sepia-0 transition-all duration-700 ease-out"
+              onerror="this.style.display='none'; document.getElementById('hero-fallback').classList.remove('hidden');" />
+
+            <!-- Fallback if offline -->
+            <div id="hero-fallback" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-bg">
+              <span class="font-serif italic text-3xl text-sec/80">MB</span>
+              <span class="font-mono text-[8px] text-sec/50 mt-1">PORTRAIT_ACTIVE</span>
+            </div>
+
+            <!-- Image absolute tag -->
+            <div
+              class="absolute top-2 left-2 bg-dark/80 text-white font-mono text-[8px] uppercase tracking-wider px-2 py-1 backdrop-blur-sm">
+              MICHAL_BUKOVÝ_PORTRAIT.JPG
+            </div>
+          </div>
+
+          <!-- Bottom: Short Brief around the photo -->
+          <div class="z-10 mt-1">
+            <div class="font-mono text-[10px] text-primary uppercase tracking-widest mb-1 font-bold">
+            </div>
+            <p class="text-text font-serif italic text-[15px] leading-snug mb-3">
+              „Pomáhám firmám proměnit jejich skrytá aktiva - data, zákazníky a know-how - v ziskové digitální produkty.
+              Nečekám na hotové zadání, tvořím ho.“
+            </p>
+            <div
+              class="flex justify-between text-[9px] font-mono text-sec uppercase tracking-wider pt-2.5 border-t border-border/60">
+              <span>PHA / BA / REMOTE</span>
+              <span>15+ LET SPOLUPRÁCÍ</span>
+            </div>
+          </div>
+
+          <!-- Concept Asset Tags (Orbiting Graphics) -->
+          <div
+            class="absolute -left-20 top-1/4 hidden xl:flex items-center gap-2 z-20 hover:scale-105 transition-transform duration-300">
+            <div
+              class="font-mono text-[9px] uppercase tracking-widest border border-border bg-white py-1.5 px-3 shadow-sm text-text">
+              Zákazníci</div>
+            <div class="w-8 h-px bg-border border-dashed"></div>
+          </div>
+          <div
+            class="absolute -right-16 top-1/3 hidden xl:flex items-center gap-2 z-20 hover:scale-105 transition-transform duration-300">
+            <div class="w-8 h-px bg-border border-dashed"></div>
+            <div
+              class="font-mono text-[9px] uppercase tracking-widest border border-border bg-white py-1.5 px-3 shadow-sm text-text">
+              Data</div>
+          </div>
+          <div
+            class="absolute -left-24 bottom-1/3 hidden xl:flex items-center gap-2 z-20 hover:scale-105 transition-transform duration-300">
+            <div
+              class="font-mono text-[9px] uppercase tracking-widest border border-border bg-white py-1.5 px-3 shadow-sm text-text">
+              Know-how</div>
+            <div class="w-12 h-px bg-border border-dashed"></div>
+          </div>
+          <div
+            class="absolute -right-24 bottom-1/4 hidden xl:flex items-center gap-2 z-20 hover:scale-105 transition-transform duration-300">
+            <div class="w-12 h-px bg-border border-dashed"></div>
+            <div
+              class="font-mono text-[9px] uppercase tracking-widest border border-border bg-white py-1.5 px-3 shadow-sm text-text">
+              Distribuce</div>
+          </div>
+        </div>
+
+        <!-- Mobile Floating Asset Tags (fallback beneath card) -->
+        <div class="xl:hidden flex flex-wrap gap-2 justify-center mt-6 w-full max-w-[420px]">
+          <span
+            class="font-mono text-[9px] uppercase tracking-wider border border-border px-3 py-1.5 bg-white text-sec">Zákazníci</span>
+          <span
+            class="font-mono text-[9px] uppercase tracking-wider border border-border px-3 py-1.5 bg-white text-sec">Data</span>
+          <span
+            class="font-mono text-[9px] uppercase tracking-wider border border-border px-3 py-1.5 bg-white text-sec">Know-how</span>
+          <span
+            class="font-mono text-[9px] uppercase tracking-wider border border-border px-3 py-1.5 bg-white text-sec">Distribuce</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. The Opportunity -->
+  <section class="py-32 px-6 max-w-[1340px] mx-auto bt-subtle reveal">
+    <div class="grid lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-5">
+        <div class="font-mono text-sec text-xs mb-8 uppercase tracking-widest">01 / Příležitost</div>
+      </div>
+      <div class="lg:col-span-5 lg:row-start-2 lg:row-span-2">
+        <h2 class="text-4xl md:text-5xl font-medium mb-8 tracking-tight leading-tight">Pravděpodobně máte víc než jen
+          jeden byznys.</h2>
+        <div class="text-sec text-lg leading-relaxed space-y-6">
+          <p>Většina firem používá své největší výhody výhradně pro svůj stávající produkt.</p>
+          <p>Zákazníky. Data. Unikátní procesy. Distribuční síť. Značku.</p>
+          <p class="text-text font-medium">Já pomáhám hledat, co dalšího se nad těmito aktivy dá postavit.</p>
+        </div>
+      </div>
+      <div class="lg:col-span-6 lg:col-start-7 lg:row-start-2 lg:row-span-2 grid sm:grid-cols-2 gap-x-12 gap-y-16">
+        <div>
+          <h3 class="text-sm font-mono uppercase tracking-widest mb-4 bb-subtle pb-4">Zákazníci</h3>
+          <p class="text-sec text-sm leading-relaxed">Nové služby, marketplace platformy, subscription modely nebo
+            digitální produkt pro zcela jiný segment trhu.</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-mono uppercase tracking-widest mb-4 bb-subtle pb-4">Data</h3>
+          <p class="text-sec text-sm leading-relaxed">Interní analytika přetavená v tržní benchmarking, predikční
+            nástroje a datovou inteligenci.</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-mono uppercase tracking-widest mb-4 bb-subtle pb-4">Know-how</h3>
+          <p class="text-sec text-sm leading-relaxed">Interní procesy, ze kterých vznikne nový SaaS, B2B nástroj nebo
+            produktizovaná expertíza.</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-mono uppercase tracking-widest mb-4 bb-subtle pb-4">Distribuce</h3>
+          <p class="text-sec text-sm leading-relaxed">Nový produkt, který díky vaší pozici na trhu nemusí od prvního dne
+            draze nakupovat své uživatele.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Approach -->
+  <section id="pristup" class="py-32 px-6 bg-white bt-subtle bb-subtle reveal">
+    <div class="max-w-[1340px] mx-auto">
+      <div class="font-mono text-sec text-xs mb-8 uppercase tracking-widest">02 / Přístup</div>
+      <h2 class="text-5xl md:text-7xl font-medium mb-24 tracking-tighter">Objevit. Ověřit. Postavit.</h2>
+
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="group">
+          <div class="font-mono text-[10px] text-sec mb-4 uppercase tracking-widest">Fáze 1</div>
+          <h3 class="text-3xl font-medium mb-6 tracking-tight">Objevit</h3>
+          <p class="text-text font-medium mb-4 text-lg">Najdeme spolu příležitost, která těží z vaší existující výhody.</p>
+          <p class="text-sec text-sm leading-relaxed">Žádná prezentace desítek nesmyslných nápadů. Hledáme jednu
+            silnou, racionální hypotézu s jasným zákazníkem, definovaným problémem a reálným byznys modelem.</p>
+        </div>
+        <div class="group">
+          <div class="font-mono text-[10px] text-sec mb-4 uppercase tracking-widest">Fáze 2</div>
+          <h3 class="text-3xl font-medium mb-6 tracking-tight">Ověřit</h3>
+          <p class="text-text font-medium mb-4 text-lg">Zjistíme, zda za řešení někdo reálně zaplatí.</p>
+          <p class="text-sec text-sm leading-relaxed">Rozhovory, testování ochoty platit, prototypování a první pilotní
+            provozy. Všechna kritická rizika odstraňujeme dřív, než začne samotný drahý vývoj.</p>
+        </div>
+        <div class="group">
+          <div class="font-mono text-[10px] text-sec mb-4 uppercase tracking-widest">Fáze 3</div>
+          <h3 class="text-3xl font-medium mb-6 tracking-tight">Postavit</h3>
+          <p class="text-text font-medium mb-4 text-lg">Proměníme ověřenou příležitost ve funkční produkt.</p>
+          <p class="text-sec text-sm leading-relaxed">Od návrhu byznys logiky, přes softwarovou architekturu až po
+            dodání MVP a získání prvních platících zákazníků.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Services -->
+  <section id="sluzby" class="py-32 px-6 max-w-[1340px] mx-auto reveal">
+    <div class="font-mono text-sec text-xs mb-8 uppercase tracking-widest">03 / Služby</div>
+    <h2 class="text-5xl md:text-7xl font-medium mb-24 max-w-4xl tracking-tighter leading-[1]">Od skryté výhody k novým
+      příjmům.</h2>
+
+    <div class="grid lg:grid-cols-3 gap-0 border border-border bg-white rounded-sm overflow-hidden">
+      <!-- Service 1 -->
+      <div class="p-10 md:p-12 lg:p-14 bl-subtle first:border-l-0 flex flex-col group">
+        <h3 class="text-2xl font-medium mb-6 tracking-tight">Revenue Opportunity Sprint</h3>
+        <p class="text-lg font-medium mb-4">Pro firmy, které ví, že mají silná aktiva, ale zatím nevidí konkrétní
+          produkt.</p>
+        <p class="text-sec text-sm leading-relaxed mb-10 flex-grow">Během pár týdnů zmapujeme vaši zákaznickou bázi,
+          data, distribuční kanály i technologie. Vybereme tu nejsilnější produktovou hypotézu a připravíme technický i byznysový
+          plán pro její ověření.</p>
+
+        <a href="#kontakt"
+          class="inline-flex items-center text-primary font-mono text-[11px] font-bold uppercase tracking-wider hover:text-[#e64500] transition-colors mb-10 group-hover:translate-x-1 transition-transform duration-300">
+          Najít produktovou příležitost &rarr;
+        </a>
+
+        <div class="bt-subtle pt-6 mt-auto">
+          <span class="font-mono text-[10px] uppercase text-sec tracking-widest block mb-2">Výstup</span>
+          <span class="font-medium text-sm">Venture thesis, byznys model a akční plán.</span>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="p-10 md:p-12 lg:p-14 bt-subtle lg:border-t-0 bl-subtle flex flex-col group bg-[#FAFAFA]">
+        <h3 class="text-2xl font-medium mb-6 tracking-tight">Venture Validation</h3>
+        <p class="text-lg font-medium mb-4">Pro firmy s jasnou produktovou vizí, které nechtějí investovat naslepo.</p>
+        <p class="text-sec text-sm leading-relaxed mb-10 flex-grow">Rychle a tvrdě ověříme skutečný problém zákazníků,
+          funkčnost distribučního kanálu a ochotu za produkt platit. Odstraníme "wishful thinking" z rovnice dřív, než
+          se napíše řádek kódu.</p>
+
+        <a href="#kontakt"
+          class="inline-flex items-center text-primary font-mono text-[11px] font-bold uppercase tracking-wider hover:text-[#e64500] transition-colors mb-10 group-hover:translate-x-1 transition-transform duration-300">
+          Ověřit produktovou hypotézu &rarr;
+        </a>
+
+        <div class="bt-subtle pt-6 mt-auto">
+          <span class="font-mono text-[10px] uppercase text-sec tracking-widest block mb-2">Výstup</span>
+          <span class="font-medium text-sm">Důkaz trhu a rozhodnutí postavit / zabít.</span>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="p-10 md:p-12 lg:p-14 bt-subtle lg:border-t-0 bl-subtle flex flex-col group">
+        <h3 class="text-2xl font-medium mb-6 tracking-tight">Venture Build</h3>
+        <p class="text-lg font-medium mb-4">Pro firmy připravené dostat nový digitální produkt reálně na trh.</p>
+        <p class="text-sec text-sm leading-relaxed mb-10 flex-grow">Kompletní realizace. Navrhnu produktovou logiku,
+          technickou architekturu a převezmu zodpovědnost za vývoj - ať už formou vedení interního týmu, nebo přes implementační partnery.</p>
+
+        <a href="#kontakt"
+          class="inline-flex items-center text-primary font-mono text-[11px] font-bold uppercase tracking-wider hover:text-[#e64500] transition-colors mb-10 group-hover:translate-x-1 transition-transform duration-300">
+          Postavit nový produkt &rarr;
+        </a>
+
+        <div class="bt-subtle pt-6 mt-auto">
+          <span class="font-mono text-[10px] uppercase text-sec tracking-widest block mb-2">Výstup</span>
+          <span class="font-medium text-sm">Funkční MVP a první aktivní uživatelé.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Fit -->
+  <section class="py-32 px-6 bg-dark text-light">
+    <div class="max-w-[1340px] mx-auto grid lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-5">
+        <div class="font-mono text-white/30 text-xs mb-8 uppercase tracking-widest">04 / Pro koho</div>
+      </div>
+      <div class="lg:col-span-5 lg:row-start-2 lg:row-span-2">
+        <h2 class="text-4xl md:text-5xl font-medium tracking-tight leading-tight mb-8">Nejlépe to funguje tam, kde už
+          máte unfair výhodu.</h2>
+        <p class="text-white/60 text-lg leading-relaxed font-light">Mým cílem není budovat startupy z garáže. Hledám
+          asymetrii - situace, kdy váš stávající tržní dosah umožňuje postavit nový produkt mnohem rychleji a levněji
+          než to dokáže čistý startup.</p>
+      </div>
+
+      <div class="lg:col-span-6 lg:col-start-7 lg:row-start-2 lg:row-span-2 grid sm:grid-cols-2 gap-12">
+        <div>
+          <h3 class="font-mono text-primary text-[11px] uppercase tracking-widest mb-6 border-b border-white/10 pb-4">
+            Typicky firmy, které mají:</h3>
+          <ul class="space-y-4 text-sm text-white/80 font-mono tracking-wide">
+            <li class="flex items-start"><span class="text-primary mr-3 select-none">■</span> Silná značka nebo komunita
+            </li>
+            <li class="flex items-start"><span class="text-primary mr-3 select-none">■</span> Tisíce aktivních zákazníků
+            </li>
+            <li class="flex items-start"><span class="text-primary mr-3 select-none">■</span> Vlastní unikátní data</li>
+            <li class="flex items-start"><span class="text-primary mr-3 select-none">■</span> Existující distribuční síť
+            </li>
+            <li class="flex items-start"><span class="text-primary mr-3 select-none">■</span> Ambice diverzifikovat
+              příjmy</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-mono text-blue text-[11px] uppercase tracking-widest mb-6 border-b border-white/10 pb-4">
+            Nejčastěji jde o:</h3>
+          <ul class="space-y-4 text-sm text-white/80 font-mono tracking-wide">
+            <li class="flex items-start"><span class="text-blue mr-3 select-none">■</span> Vertikální e-commerce</li>
+            <li class="flex items-start"><span class="text-blue mr-3 select-none">■</span> B2B & Provozní software</li>
+            <li class="flex items-start"><span class="text-blue mr-3 select-none">■</span> Specializovaný retail</li>
+            <li class="flex items-start"><span class="text-blue mr-3 select-none">■</span> B2B Marketplaces</li>
+            <li class="flex items-start"><span class="text-blue mr-3 select-none">■</span> Sítě a servisní firmy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Selected Work -->
+  <section id="projekty" class="py-32 px-6 bg-white bt-subtle reveal">
+    <div class="max-w-[1340px] mx-auto">
+      <div class="font-mono text-sec text-xs mb-8 uppercase tracking-widest">05 / Vybrané projekty</div>
+      <h2 class="text-5xl md:text-7xl font-medium mb-32 max-w-4xl tracking-tighter leading-[1]">Produkty, které jsem
+        pomáhal navrhnout a postavit.</h2>
+
+      <div class="space-y-40">
+
+        <!-- Project 1: Cashopti -->
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div class="lg:col-span-4 order-2 lg:order-1">
+            <h3 class="text-4xl font-medium tracking-tight mb-2">Cashopti</h3>
+            <p class="text-primary font-mono text-[11px] uppercase tracking-widest mb-6">Cashflow inteligence pro SMB
+            </p>
+            <p class="text-sec mb-8 text-sm leading-relaxed">Fintech platforma, která pomáhá malým a středním firmám
+              lépe predikovat a řídit své budoucí cashflow a pracovní kapitál.</p>
+            <div class="bl-subtle pl-4">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-sec block mb-2">Moje role</span>
+              <span class="font-medium text-sm">Produktová strategie, byznys logika, architektura a full-stack
+                vývoj.</span>
+            </div>
+          </div>
+          <div
+            class="lg:col-span-8 h-[450px] bg-[#FAFAFA] border border-border flex flex-col justify-center items-center relative overflow-hidden order-1 lg:order-2">
+            <div class="absolute inset-0 abstract-grid opacity-50"></div>
+            <!-- Minimalist UI wireframe -->
+            <div class="w-3/4 bg-white border border-border shadow-sm p-6 relative z-10 flex flex-col">
+              <div class="flex justify-between items-end mb-12 bb-subtle pb-4">
+                <div>
+                  <div class="font-mono text-[10px] text-sec uppercase tracking-widest mb-2">Očekávané Cashflow (Q3)
+                  </div>
+                  <div class="text-4xl font-medium tracking-tight font-mono">€124,500</div>
+                </div>
+                <div class="font-mono text-[10px] bg-bg border border-border px-2 py-1">+12% RŮST</div>
+              </div>
+              <div class="flex items-end justify-between h-32 gap-2 relative">
+                <!-- Abstract chart -->
+                <div class="w-full bg-border h-[30%]"></div>
+                <div class="w-full bg-border h-[40%]"></div>
+                <div class="w-full bg-border h-[60%] relative">
+                  <div
+                    class="absolute -top-6 left-1/2 -translate-x-1/2 text-primary font-mono text-[10px] tracking-widest uppercase">
+                    Anomaly</div>
+                </div>
+                <div class="w-full bg-primary h-[85%]"></div>
+                <div class="w-full border-t border-r border-border h-[60%]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: ProdSimulator -->
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div class="lg:col-span-4 lg:col-start-9 order-2 lg:order-2">
+            <h3 class="text-4xl font-medium tracking-tight mb-2">ProdSimulator</h3>
+            <p class="text-text font-mono text-[11px] uppercase tracking-widest mb-6">Náborový nástroj pro inženýry</p>
+            <p class="text-sec mb-8 text-sm leading-relaxed">Simulační platforma testující inženýry v reálném čase během
+              nasimulovaných produkčních výpadků. Zjišťuje, jak vývojář přemýšlí pod tlakem.</p>
+            <div class="bl-subtle pl-4">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-sec block mb-2">Moje role</span>
+              <span class="font-medium text-sm">Původní koncept, návrh produktu, skórovací algoritmy a
+                implementace.</span>
+            </div>
+          </div>
+          <div
+            class="lg:col-span-8 lg:col-start-1 h-[450px] bg-dark border border-text flex justify-center items-center relative overflow-hidden order-1 lg:order-1">
+            <div class="absolute inset-0 abstract-grid-dark opacity-20"></div>
+            <!-- Minimalist Dark Terminal -->
+            <div
+              class="w-3/4 bg-[#111] border border-white/20 p-6 shadow-2xl relative z-10 font-mono text-xs leading-relaxed text-white/70">
+              <div class="flex gap-2 bb-subtle border-white/10 pb-4 mb-4">
+                <div class="w-2 h-2 rounded-full bg-white/20"></div>
+                <div class="w-2 h-2 rounded-full bg-white/20"></div>
+                <div class="w-2 h-2 rounded-full bg-white/20"></div>
+              </div>
+              <div><span class="text-[#00FF66]">user@prod-sim</span>:~$ kubectl get pods -n production</div>
+              <div class="mt-2 text-white/40">
+                NAME READY &nbsp;&nbsp; STATUS &nbsp;&nbsp;&nbsp; RESTARTS<br>
+                auth-service-v2-xyz &nbsp;&nbsp;&nbsp; 0/1 &nbsp;&nbsp;&nbsp;&nbsp; CrashLoop &nbsp;&nbsp; 14
+              </div>
+              <div class="mt-4"><span class="text-[#00FF66]">user@prod-sim</span>:~$ _</div>
+
+              <!-- Floating evaluation box -->
+              <div
+                class="absolute -right-4 -bottom-4 bg-white text-dark p-4 border border-border w-56 transform translate-y-4 shadow-xl">
+                <div class="font-mono text-[9px] uppercase tracking-widest text-sec mb-2">Automated Assessment</div>
+                <div class="flex justify-between items-baseline mb-2">
+                  <div class="text-2xl font-bold font-sans tracking-tight">85<span
+                      class="text-xs font-normal text-sec">/100</span></div>
+                  <div class="text-[10px] font-bold bg-dark text-white px-2 py-1 uppercase">Passed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Ydoca -->
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div class="lg:col-span-4 order-2 lg:order-1">
+            <h3 class="text-4xl font-medium tracking-tight mb-2">Ydoca</h3>
+            <p class="text-blue font-mono text-[11px] uppercase tracking-widest mb-6">AI RFP Platforma</p>
+            <p class="text-sec mb-8 text-sm leading-relaxed">B2B platforma specializovaná na zpracování obsáhlých
+              tendrových dokumentů (RFP) a automatizaci tvorby kvalifikovaných odpovědí pomocí LLM.</p>
+            <div class="bl-subtle pl-4">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-sec block mb-2">Moje role</span>
+              <span class="font-medium text-sm">Spoluzakladatel, CTO, produktová strategie a softwarová
+                architektura.</span>
+            </div>
+          </div>
+          <div
+            class="lg:col-span-8 h-[450px] bg-white border border-border abstract-grid flex flex-col justify-center items-center relative overflow-hidden order-1 lg:order-2">
+            <!-- Clean Document Parser UI -->
+            <div class="w-[85%] bg-bg border border-border flex h-72 shadow-sm">
+              <!-- Left: Doc -->
+              <div class="w-1/2 border-r border-border p-6 bg-white relative">
+                <div class="font-mono text-[9px] uppercase tracking-widest text-sec mb-6">RFP_Requirements.pdf</div>
+                <div class="space-y-3">
+                  <div class="h-2 bg-border w-full"></div>
+                  <div class="h-2 bg-border w-[90%]"></div>
+                  <div class="h-2 bg-border w-[80%] mb-6"></div>
+
+                  <div class="p-2 border border-blue/30 bg-blue/5 relative">
+                    <div class="absolute -left-1 top-0 w-0.5 h-full bg-blue"></div>
+                    <div class="h-2 bg-text w-[70%] mb-2"></div>
+                    <div class="h-2 bg-text w-[60%]"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Right: AI Logic -->
+              <div class="w-1/2 p-6 flex flex-col justify-center">
+                <div class="font-mono text-[9px] uppercase tracking-widest text-blue mb-2">AI Extraction</div>
+                <div class="text-sm font-medium mb-2 leading-snug">Compliance & Security Policy</div>
+                <p class="text-xs text-sec font-mono mb-4">Source: Information_Security_2025.docx</p>
+                <div
+                  class="mt-auto border border-border p-3 bg-white text-[10px] font-mono uppercase text-sec flex justify-between">
+                  <span>Confidence</span>
+                  <span class="text-text font-bold">High (98%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: CXone Bot Builder -->
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div class="lg:col-span-4 lg:col-start-9 order-2 lg:order-2">
+            <h3 class="text-4xl font-medium tracking-tight mb-2">CXone Bot Builder</h3>
+            <p class="text-primary font-mono text-[11px] uppercase tracking-widest mb-6">Enterprise Conversational AI
+            </p>
+            <p class="text-sec mb-8 text-sm leading-relaxed">Flow-oriented platforma pro vizuální návrh, správu,
+              nasazení a testování inteligentních chatbotů a automatizovaných zákaznických konverzací.</p>
+            <div class="bl-subtle pl-4">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-sec block mb-2">Moje role</span>
+              <span class="font-medium text-sm">Vývoj produktu a technologií v enterprise korporátním prostředí.</span>
+            </div>
+          </div>
+          <div
+            class="lg:col-span-8 lg:col-start-1 h-[450px] bg-[#FAFAFA] border border-border flex justify-center items-center relative overflow-hidden order-1 lg:order-1">
+            <div class="absolute inset-0 abstract-grid opacity-50"></div>
+            <!-- Conversation flow workspace visual representation -->
+            <div
+              class="w-[85%] bg-white border border-border p-5 shadow-sm relative z-10 flex flex-col justify-between h-64">
+              <div
+                class="flex justify-between items-center border-b border-border pb-3 font-mono text-[9px] uppercase tracking-widest text-sec mb-3">
+                <span>Bot Workspace Flow</span>
+                <span>[TRIGGERS_ACTIVE]</span>
+              </div>
+              <div class="grid grid-cols-3 gap-4 items-center flex-grow">
+                <div class="border border-border p-3 bg-bg flex flex-col gap-1">
+                  <span class="font-mono text-[8px] text-sec uppercase">[TRIGGER]</span>
+                  <span class="font-bold text-xs text-text">User Intent: Refund</span>
+                </div>
+                <div class="border-2 border-primary p-3 bg-white relative flex flex-col gap-1">
+                  <div class="absolute -top-2 left-3 bg-primary text-white font-mono text-[7px] uppercase px-1">Logic
+                    check</div>
+                  <span class="font-mono text-[8px] text-primary uppercase">[API_CALL]</span>
+                  <span class="font-bold text-xs text-text">Verify Order Id</span>
+                </div>
+                <div class="border border-border p-3 bg-bg flex flex-col gap-1">
+                  <span class="font-mono text-[8px] text-sec uppercase">[ACTION]</span>
+                  <span class="font-bold text-xs text-text">Trigger Refund</span>
+                </div>
+              </div>
+              <!-- Connector dotted arrows represented via custom markup elements -->
+              <div class="flex justify-between px-12 text-primary font-bold font-mono text-xs select-none">
+                <span>&rarr;</span>
+                <span>&rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: NaviRider -->
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div class="lg:col-span-4 order-2 lg:order-1">
+            <h3 class="text-4xl font-medium tracking-tight mb-2">NaviRider</h3>
+            <p class="text-text font-mono text-[11px] uppercase tracking-widest mb-6">Speciální navigace pro motorkáře
+            </p>
+            <p class="text-sec mb-8 text-sm leading-relaxed">Navigační aplikace pro motorkáře navržená tak, aby
+              nehledala nejrychlejší cestu, ale vizuálně i zážitkově nejzajímavější trasu s kvalitním povrchem.</p>
+            <div class="bl-subtle pl-4">
+              <span class="font-mono text-[10px] uppercase tracking-widest text-sec block mb-2">Moje role</span>
+              <span class="font-medium text-sm">Návrh produktu, design aplikace, backend a komplexní routovací
+                logika.</span>
+            </div>
+          </div>
+          <div
+            class="lg:col-span-8 h-[450px] bg-[#141517] flex justify-center items-center relative overflow-hidden order-1 lg:order-2">
+            <!-- Abstract Map UI -->
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
+              <!-- Topographic abstraction -->
+              <path d="M-100 200 Q 200 100 400 300 T 900 100" fill="none" stroke="rgba(255,255,255,0.05)"
+                stroke-width="2" />
+              <path d="M-100 250 Q 200 150 400 350 T 900 150" fill="none" stroke="rgba(255,255,255,0.05)"
+                stroke-width="2" />
+              <path d="M-100 300 Q 200 200 400 400 T 900 200" fill="none" stroke="rgba(255,255,255,0.05)"
+                stroke-width="2" />
+
+              <!-- Route -->
+              <path d="M100 350 C 300 300, 200 100, 500 200 C 650 250, 600 50, 800 150" fill="none" stroke="#3155FF"
+                stroke-width="4" stroke-linecap="square" />
+              <!-- Position marker -->
+              <circle cx="500" cy="200" r="6" fill="#fff" />
+              <circle cx="500" cy="200" r="16" fill="none" stroke="#3155FF" stroke-width="1" opacity="0.5" />
+            </svg>
+
+            <!-- Overlay Data block -->
+            <div class="absolute bottom-8 left-8 bg-[#1B1D22] border border-white/10 p-5 w-64">
+              <div class="font-mono text-[9px] uppercase tracking-widest text-white/50 mb-1">Current Route</div>
+              <div class="text-white text-lg font-medium tracking-tight mb-4">Grossglockner Pass</div>
+              <div
+                class="flex justify-between items-center text-xs font-mono text-white/70 bt-subtle border-white/10 pt-3">
+                <span class="uppercase">Curviness</span>
+                <span class="text-[#3155FF] font-bold">Max</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Why External -->
+  <section class="py-32 px-6 bg-dark text-light reveal">
+    <div class="max-w-[1340px] mx-auto">
+      <div class="font-mono text-white/30 text-xs mb-8 uppercase tracking-widest">06 / Proč externě</div>
+      <h2 class="text-5xl md:text-7xl font-medium mb-16 max-w-4xl tracking-tighter leading-[1]">Interní tým chrání to,
+        co funguje dnes.<br>Venture tým staví to, co přijde zítra.</h2>
+
+      <div class="grid lg:grid-cols-12 gap-16 border-t border-white/10 pt-16 mt-24">
+        <div class="lg:col-span-4">
+          <p class="text-xl font-light leading-relaxed text-white/80">Stávající produktový tým má vlastní dlouhodobou
+            roadmapu, platící zákazníky a náročné provozní závazky. Vývoj zcela nového produktu vyžaduje odlišný, mnohem
+            agresivnější přístup s rychlým rozhodováním.</p>
+        </div>
+
+        <div class="lg:col-span-7 lg:col-start-6 grid sm:grid-cols-2 gap-x-12 gap-y-16">
+          <div>
+            <h3 class="font-mono text-[11px] uppercase tracking-widest text-primary mb-3">Nejsem agentura</h3>
+            <p class="text-white/60 text-sm leading-relaxed">Spolupráce nekončí hezkou PowerPoint prezentací. Mým cílem
+              je dostat reálný, klikatelný produkt k prvním zákazníkům.</p>
+          </div>
+          <div>
+            <h3 class="font-mono text-[11px] uppercase tracking-widest text-primary mb-3">Nejsem dev-shop</h3>
+            <p class="text-white/60 text-sm leading-relaxed">Nemusíte přijít s perfektně definovaným zadáním o sto
+              stránkách. Tvorba zadání a strategie je klíčovou součástí procesu.</p>
+          </div>
+          <div>
+            <h3 class="font-mono text-[11px] uppercase tracking-widest text-primary mb-3">Žádné inovační divadlo</h3>
+            <p class="text-white/60 text-sm leading-relaxed">Každý krok musí vést k jasnému obchodnímu rozhodnutí.
+              Ověřujeme kritická rizika, nehrajeme si se sticky notes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20 pt-8 border-t border-white/10 flex justify-center sm:justify-start">
+        <span
+          class="font-mono text-[11px] uppercase tracking-[0.2em] border border-white/20 py-3 px-6 bg-white/5 text-light text-center font-bold">
+          Od první hypotézy až po produkt v rukou zákazníka.
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. About -->
+  <section id="o-mne" class="py-32 px-6 max-w-[1340px] mx-auto bb-subtle reveal">
+    <div class="font-mono text-sec text-xs mb-8 uppercase tracking-widest">07 / O mně</div>
+
+    <div class="grid lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-7">
+        <h2 class="text-5xl md:text-7xl font-medium mb-12 tracking-tighter leading-[1]">Pohybuji se mezi byznysem,
+          produktem a technologií.</h2>
+
+        <div class="text-lg text-sec space-y-6 mb-16 leading-relaxed font-light">
+          <p>Už více než patnáct let navrhuji a stavím softwarové produkty v rolích vývojáře, softwarového architekta,
+            CTO, zakladatele a produktového partnera pro firmy.</p>
+          <p>Pracoval jsem od malých rychlých startupů až po masivní enterprise B2B platformy. Vím, co znamená psát kód,
+            i to, co obnáší navrhnout udržitelný byznys model. Teď spojuji tyto dva světy do jednoho.</p>
+
+          <div class="my-12 py-8 bt-subtle bb-subtle">
+            <p class="font-serif italic text-3xl text-text leading-tight tracking-tight">"Nečekám na hotové zadání.
+              Pomáhám firmám zjistit, co má skutečně smysl postavit - a následně to dostanu do reality."</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-8 pt-8 border-t border-border">
+          <div>
+            <h3 class="font-bold mb-3 font-mono text-[10px] uppercase tracking-widest">Produkt</h3>
+            <p class="text-sm text-sec leading-relaxed">Strategie, uživatelský výzkum, návrh MVP a nekompromisní tržní
+              validace.</p>
+          </div>
+          <div>
+            <h3 class="font-bold mb-3 font-mono text-[10px] uppercase tracking-widest">Byznys</h3>
+            <p class="text-sm text-sec leading-relaxed">Modely monetizace, go-to-market strategie a celková ekonomika
+              produktu.</p>
+          </div>
+          <div>
+            <h3 class="font-bold mb-3 font-mono text-[10px] uppercase tracking-widest">Technologie</h3>
+            <p class="text-sm text-sec leading-relaxed">Architektura systémů, integrace, AI modely a samotný technický
+              vývoj.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-4 lg:col-start-9 flex justify-center lg:justify-end items-start mt-8 lg:mt-0">
+        <!-- Minimalist sophisticated secondary profile frame -->
+        <div
+          class="w-full aspect-[3/4] bg-[#FAFAFA] border border-border relative overflow-hidden flex flex-col justify-between p-6 abstract-grid shadow-sm">
+          <div class="font-mono text-[9px] uppercase tracking-widest text-sec">System Id: 0X-MB</div>
+
+          <div class="w-full h-1/2 border border-border relative bg-bg">
+            <div class="absolute inset-0 bg-gradient-to-tr from-border to-transparent opacity-30"></div>
+            <div class="absolute inset-0 flex items-center justify-center font-serif italic text-2xl text-sec/40">Michal
+              Bukový</div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-medium tracking-tight mb-1">Michal Bukový</h3>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-sec">Venture Builder & Architekt</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. More -->
+  <section class="py-32 px-6 max-w-[1340px] mx-auto reveal">
+    <div class="font-mono text-sec text-xs mb-8 uppercase tracking-widest">08 / Další formy spolupráce</div>
+    <div class="grid lg:grid-cols-12 gap-16">
+      <div class="lg:col-span-4">
+        <h2 class="text-3xl font-medium tracking-tight">A pokud už přesně víte, co potřebujete postavit:</h2>
+      </div>
+
+      <div class="lg:col-span-8 grid sm:grid-cols-2 gap-x-12 gap-y-12">
+        <div class="bt-subtle pt-6">
+          <h3 class="text-lg font-medium mb-2 tracking-tight">Produktová Strategie</h3>
+          <p class="text-sec text-sm leading-relaxed">Vyjasnění zaměření produktu, positioningu na trhu, rozsahu MVP a
+            budoucí roadmapy.</p>
+        </div>
+        <div class="bt-subtle pt-6">
+          <h3 class="text-lg font-medium mb-2 tracking-tight">Návrh a Vývoj MVP</h3>
+          <p class="text-sec text-sm leading-relaxed">Rychlá stavba první iterace produktu sloužící k efektivnímu
+            průniku na trh a získání prvních dat.</p>
+        </div>
+        <div class="bt-subtle pt-6">
+          <h3 class="text-lg font-medium mb-2 tracking-tight">Softwarová Architektura</h3>
+          <p class="text-sec text-sm leading-relaxed">Analýza a návrh systémové architektury, integrací, bezpečnosti a
+            škálovatelnosti řešení.</p>
+        </div>
+        <div class="bt-subtle pt-6">
+          <h3 class="text-lg font-medium mb-2 tracking-tight">Fractional CTO</h3>
+          <p class="text-sec text-sm leading-relaxed">Seniorní technologické vedení projektu a byznysu bez nutnosti
+            najímat full-time osobu.</p>
+        </div>
+        <div class="bt-subtle pt-6">
+          <h3 class="text-lg font-medium mb-2 tracking-tight">AI & LLM Integrace</h3>
+          <p class="text-sec text-sm leading-relaxed">Praktické, nikoliv "buzzword" nasazení jazykových modelů tam, kde
+            reálně automatizují práci nebo zlepšují zážitek.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Final CTA -->
+  <section id="kontakt" class="py-40 px-6 bg-primary text-white text-center reveal">
+    <div class="max-w-[1340px] mx-auto">
+      <h2 class="text-5xl md:text-8xl font-medium mb-12 tracking-tighter leading-[0.9]">Co dalšího by vaše<br>firma
+        mohla vytvořit?</h2>
+
+      <p class="text-xl md:text-2xl text-white/80 mb-16 font-light max-w-2xl mx-auto">
+        Možná už máte zákazníky, technologie, jedinečná data i distribuční síť. Chybí jen produktový mechanismus, který to celé spojí
+        dohromady.
+      </p>
+
+      <a href="mailto:kontakt@example.com"
+        class="inline-block bg-white text-primary px-12 py-5 pill-btn text-sm font-bold uppercase tracking-widest hover:bg-bg transition-colors mb-12">
+        Probrat příležitost
+      </a>
+
+      <div class="max-w-md mx-auto text-sm text-white/60 font-mono leading-relaxed">
+        [&nbsp;Úvodní hovor je zdarma a není prodejní prezentace mých služeb. Podíváme se na vaši firmu, její skryté výhody a
+        probereme potenciální směry nového produktu.&nbsp;]
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer
+    class="py-12 px-6 max-w-[1340px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-t border-border mt-12">
+    <div>
+      <div class="font-bold text-lg mb-1 tracking-tight">Michal Bukový</div>
+      <div class="text-sec text-xs font-mono uppercase tracking-widest">Product & Venture Builder</div>
+    </div>
+
+    <div class="flex justify-start md:justify-center gap-8 text-[11px] font-mono uppercase tracking-widest text-text">
+      <a href="#"
+        class="hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1">LinkedIn</a>
+      <a href="#"
+        class="hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1">Email</a>
+      <a href="#projekty"
+        class="hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1">Vybrané
+        projekty</a>
+    </div>
+
+    <div class="text-xs text-sec text-left md:text-right font-mono uppercase tracking-widest">
+      <div class="mb-1 text-text">Bratislava &middot; Praha &middot; Remote</div>
+      <div>&copy; 2026 Michal Bukový</div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Navigation scroll animation logic - fixed the white-on-white invisible header bugs completely
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          navbar.classList.add('bg-bg/95', 'backdrop-blur-md', 'border-b', 'border-border', 'py-4', 'shadow-sm');
+          navbar.classList.remove('py-6');
+        } else {
+          navbar.classList.remove('bg-bg/95', 'backdrop-blur-md', 'border-b', 'border-border', 'py-4', 'shadow-sm');
+          navbar.classList.add('py-6');
+        }
+      });
+
+      // Reveal animations using Intersection Observer
+      const revealElements = document.querySelectorAll('.reveal');
+
+      const revealOptions = {
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px"
+      };
+
+      const revealOnScroll = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        });
+      }, revealOptions);
+
+      revealElements.forEach(el => {
+        revealOnScroll.observe(el);
+      });
+    });
+  </script>
+
+</body>
+
+</html>
