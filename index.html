@@ -105,6 +105,46 @@
       background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     }
+
+    #projekty {
+      position: relative;
+      z-index: 10001;
+    }
+
+    .project-showcase {
+      position: relative;
+      z-index: 10002;
+      width: 100%;
+      max-width: 18rem;
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 768px) {
+      .project-showcase {
+        max-width: 20rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .project-showcase {
+        max-width: 24rem;
+      }
+    }
+
+    .project-showcase img {
+      position: relative;
+      z-index: 10003;
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+      filter: none;
+      border-radius: 0.375rem;
+      box-shadow:
+        0 4px 6px rgba(17, 17, 17, 0.04),
+        0 20px 48px -12px rgba(17, 17, 17, 0.18);
+    }
   </style>
 </head>
 
@@ -319,7 +359,8 @@
         <div class="group">
           <div class="font-mono text-[10px] text-sec mb-4 uppercase tracking-widest">Fáze 1</div>
           <h3 class="text-3xl font-medium mb-6 tracking-tight">Objevit</h3>
-          <p class="text-text font-medium mb-4 text-lg">Najdeme spolu příležitost, která těží z vaší existující výhody.</p>
+          <p class="text-text font-medium mb-4 text-lg">Najdeme spolu příležitost, která těží z vaší existující výhody.
+          </p>
           <p class="text-sec text-sm leading-relaxed">Žádná prezentace desítek nesmyslných nápadů. Hledáme jednu
             silnou, racionální hypotézu s jasným zákazníkem, definovaným problémem a reálným byznys modelem.</p>
         </div>
@@ -354,7 +395,8 @@
         <p class="text-lg font-medium mb-4">Pro firmy, které ví, že mají silná aktiva, ale zatím nevidí konkrétní
           produkt.</p>
         <p class="text-sec text-sm leading-relaxed mb-10 flex-grow">Během pár týdnů zmapujeme vaši zákaznickou bázi,
-          data, distribuční kanály i technologie. Vybereme tu nejsilnější produktovou hypotézu a připravíme technický i byznysový
+          data, distribuční kanály i technologie. Vybereme tu nejsilnější produktovou hypotézu a připravíme technický i
+          byznysový
           plán pro její ověření.</p>
 
         <a href="#kontakt"
@@ -392,7 +434,8 @@
         <h3 class="text-2xl font-medium mb-6 tracking-tight">Venture Build</h3>
         <p class="text-lg font-medium mb-4">Pro firmy připravené dostat nový digitální produkt reálně na trh.</p>
         <p class="text-sec text-sm leading-relaxed mb-10 flex-grow">Kompletní realizace. Navrhnu produktovou logiku,
-          technickou architekturu a převezmu zodpovědnost za vývoj - ať už formou vedení interního týmu, nebo přes implementační partnery.</p>
+          technickou architekturu a převezmu zodpovědnost za vývoj - ať už formou vedení interního týmu, nebo přes
+          implementační partnery.</p>
 
         <a href="#kontakt"
           class="inline-flex items-center text-primary font-mono text-[11px] font-bold uppercase tracking-wider hover:text-[#e64500] transition-colors mb-10 group-hover:translate-x-1 transition-transform duration-300">
@@ -459,239 +502,186 @@
       <h2 class="text-5xl md:text-7xl font-medium mb-32 max-w-4xl tracking-tighter leading-[1]">Produkty, které jsem
         pomáhal navrhnout a postavit.</h2>
 
-      <div class="space-y-40">
+      <div class="space-y-28 lg:space-y-36">
 
         <!-- Project 1: Cashopti -->
-        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div class="lg:col-span-4 order-2 lg:order-1">
-            <h3 class="text-4xl font-medium tracking-tight mb-2">Cashopti</h3>
-            <p class="text-primary font-mono text-[11px] uppercase tracking-widest mb-6">Cashflow inteligence pro SMB
+        <article
+          class="flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-20 xl:gap-28 items-start lg:items-center">
+          <div class="order-2 lg:order-1 lg:max-w-md">
+            <div class="font-mono text-[10px] uppercase tracking-widest text-sec mb-4">01</div>
+            <h3 class="text-4xl font-medium tracking-tight mb-2">
+              <a href="https://cashopti.com" target="_blank" class="hover:text-[#e64500]">Cash Optimizer</a>
+            </h3>
+            <p class="text-primary font-mono text-[11px] uppercase tracking-widest mb-6">
+              Spin-off of <a href="https://dype.cz" target="_blank"
+                class="text-primary hover:text-[#e64500]">Dype.cz</a>
             </p>
-            <p class="text-sec mb-8 text-sm leading-relaxed">Fintech platforma, která pomáhá malým a středním firmám
-              lépe predikovat a řídit své budoucí cashflow a pracovní kapitál.</p>
-            <div class="bl-subtle pl-4">
-              <span class="font-mono text-[10px] uppercase tracking-widest text-sec block mb-2">Moje role</span>
-              <span class="font-medium text-sm">Produktová strategie, byznys logika, architektura a full-stack
-                vývoj.</span>
-            </div>
+            <p class="text-sec mb-8 text-sm leading-relaxed max-w-md">
+              Dype.cz je moderní finanční oddělení pro startupy a scaleupy
+              a tak bylo jen otázkou času, kdy vznikne i jejich vlastní produkt.
+              Vzniklo tak <a href="https://cashopti.com" target="_blank"
+                class="text-primary hover:text-[#e64500]">Cashopti.com</a>, nástroj na optimializaci cashflow pro malé a
+              střední firmy.
+              <br /><br />
+              Do Cashopti mě Dype přizval v čase, kdy měli nápad a jednoduchý prototyp,
+              ale na tvorbu celého produktu neměli ani potřebné zkušenosti, ani interní kapacity.
+              Vývoj jsem tedy převzal a již během tří měsíců jsme postavili MVP a začali testovat na realných
+              zákaznících.
+              <br /><br />
+              Nástroj má vizi řídit cashflow zcela autonomně s využitím umělé inteligence,
+              či nabídnout inteligentní úvěrování a investování kapitálu.
+            </p>
           </div>
-          <div
-            class="lg:col-span-8 h-[450px] bg-[#FAFAFA] border border-border flex flex-col justify-center items-center relative overflow-hidden order-1 lg:order-2">
-            <div class="absolute inset-0 abstract-grid opacity-50"></div>
-            <!-- Minimalist UI wireframe -->
-            <div class="w-3/4 bg-white border border-border shadow-sm p-6 relative z-10 flex flex-col">
-              <div class="flex justify-between items-end mb-12 bb-subtle pb-4">
-                <div>
-                  <div class="font-mono text-[10px] text-sec uppercase tracking-widest mb-2">Očekávané Cashflow (Q3)
-                  </div>
-                  <div class="text-4xl font-medium tracking-tight font-mono">€124,500</div>
-                </div>
-                <div class="font-mono text-[10px] bg-bg border border-border px-2 py-1">+12% RŮST</div>
-              </div>
-              <div class="flex items-end justify-between h-32 gap-2 relative">
-                <!-- Abstract chart -->
-                <div class="w-full bg-border h-[30%]"></div>
-                <div class="w-full bg-border h-[40%]"></div>
-                <div class="w-full bg-border h-[60%] relative">
-                  <div
-                    class="absolute -top-6 left-1/2 -translate-x-1/2 text-primary font-mono text-[10px] tracking-widest uppercase">
-                    Anomaly</div>
-                </div>
-                <div class="w-full bg-primary h-[85%]"></div>
-                <div class="w-full border-t border-r border-border h-[60%]"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+          <figure class="project-showcase order-1 lg:order-2">
+            <img src="./cashopti.png" alt="Cashopti – cashflow inteligence pro SMB" loading="lazy" />
+          </figure>
+        </article>
 
-        <!-- Project 2: ProdSimulator -->
-        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div class="lg:col-span-4 lg:col-start-9 order-2 lg:order-2">
-            <h3 class="text-4xl font-medium tracking-tight mb-2">ProdSimulator</h3>
-            <p class="text-text font-mono text-[11px] uppercase tracking-widest mb-6">Náborový nástroj pro inženýry</p>
-            <p class="text-sec mb-8 text-sm leading-relaxed">Simulační platforma testující inženýry v reálném čase během
-              nasimulovaných produkčních výpadků. Zjišťuje, jak vývojář přemýšlí pod tlakem.</p>
-            <div class="bl-subtle pl-4">
-              <span class="font-mono text-[10px] uppercase tracking-widest text-sec block mb-2">Moje role</span>
-              <span class="font-medium text-sm">Původní koncept, návrh produktu, skórovací algoritmy a
-                implementace.</span>
-            </div>
+        <!-- Project 2: Chatbot Builder -->
+        <article
+          class="flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-20 xl:gap-28 items-start lg:items-center">
+          <div class="order-2 lg:order-1 lg:max-w-md">
+            <div class="font-mono text-[10px] uppercase tracking-widest text-sec mb-4">02</div>
+            <h3 class="text-4xl font-medium tracking-tight mb-2">Chatbot Builder</h3>
+            <p class="text-primary font-mono text-[11px] uppercase tracking-widest mb-6">
+              Side Venture of <a href="https://nice.com">Brand Embassy</a> &bullet; Acquired by NICE
+            </p>
+            <p class="text-sec mb-8 text-sm leading-relaxed max-w-md">
+              Vizuální editor pro návrh, testování a nasazení
+              konverzačních botů bez nutnosti programování.
+              Vznikl jako vedlejší produkt zavedené Brand Embassy platformy
+              pro obsluhu zákaznícké podpory napříč digitálními kanály.
+              <br /><br />
+              Chatbot Builder vznikl jako inovační noha Brand Embassy s vizí
+              automatizovat práci operátorů zákaznícké péče.
+              Během asi tří let své existence platformu používalo několik, zejména telekomunikačních firem
+              po celém světě a obsloužila stovky tisíc konverzací bez lidského zásahu.
+              <br /><br />
+              Využitím umělé inteligence už v minulém desetiletí
+              ukázala budoucnost automatizace zákaznícké podpory tak, jak ji známe dnes.
+              <br /><br />
+              Po akvizici Brand Embassy ze strany NICE se z vedlejšího projektu stal plnohodnotný enterprise produkt -
+              viz dále ↓
+            </p>
           </div>
-          <div
-            class="lg:col-span-8 lg:col-start-1 h-[450px] bg-dark border border-text flex justify-center items-center relative overflow-hidden order-1 lg:order-1">
-            <div class="absolute inset-0 abstract-grid-dark opacity-20"></div>
-            <!-- Minimalist Dark Terminal -->
-            <div
-              class="w-3/4 bg-[#111] border border-white/20 p-6 shadow-2xl relative z-10 font-mono text-xs leading-relaxed text-white/70">
-              <div class="flex gap-2 bb-subtle border-white/10 pb-4 mb-4">
-                <div class="w-2 h-2 rounded-full bg-white/20"></div>
-                <div class="w-2 h-2 rounded-full bg-white/20"></div>
-                <div class="w-2 h-2 rounded-full bg-white/20"></div>
-              </div>
-              <div><span class="text-[#00FF66]">user@prod-sim</span>:~$ kubectl get pods -n production</div>
-              <div class="mt-2 text-white/40">
-                NAME READY &nbsp;&nbsp; STATUS &nbsp;&nbsp;&nbsp; RESTARTS<br>
-                auth-service-v2-xyz &nbsp;&nbsp;&nbsp; 0/1 &nbsp;&nbsp;&nbsp;&nbsp; CrashLoop &nbsp;&nbsp; 14
-              </div>
-              <div class="mt-4"><span class="text-[#00FF66]">user@prod-sim</span>:~$ _</div>
+          <figure class="project-showcase order-1 lg:order-2">
+            <img src="./chatbot_builder.png" alt="Chatbot Builder – vizuální tvorba chatbotů" loading="lazy" />
+          </figure>
+        </article>
 
-              <!-- Floating evaluation box -->
-              <div
-                class="absolute -right-4 -bottom-4 bg-white text-dark p-4 border border-border w-56 transform translate-y-4 shadow-xl">
-                <div class="font-mono text-[9px] uppercase tracking-widest text-sec mb-2">Automated Assessment</div>
-                <div class="flex justify-between items-baseline mb-2">
-                  <div class="text-2xl font-bold font-sans tracking-tight">85<span
-                      class="text-xs font-normal text-sec">/100</span></div>
-                  <div class="text-[10px] font-bold bg-dark text-white px-2 py-1 uppercase">Passed</div>
-                </div>
-              </div>
-            </div>
+        <!-- Project 3: CXone Bot Builder -->
+        <article
+          class="flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-20 xl:gap-28 items-start lg:items-center">
+          <div class="order-2 lg:order-1 lg:max-w-md">
+            <div class="font-mono text-[10px] uppercase tracking-widest text-sec mb-4">03</div>
+            <h3 class="text-4xl font-medium tracking-tight mb-2">CXone Bot Builder</h3>
+            <p class="text-primary font-mono text-[11px] uppercase tracking-widest mb-6">
+              Corporate venture of <a href="https://nice.com" target="_blank">NICE</a>
+            </p>
+            <p class="text-sec mb-8 text-sm leading-relaxed max-w-md">
+              CXone Bot Builder je no-code nástroj pro konverzační AI, který firmám umožňuje
+              stavět virtuální agenty pro jednoduché i složité zákaznické interakce.
+              Funguje napříč digitálními kanály – live chat, WhatsApp, Facebook Messenger –
+              a dokáže odpovídat na dotazy, sbírat data nebo zcela nahradit živé operátory.
+              <br /><br />
+              Tento produkt vznikl jako zcela AI-native nástupce Brand Embassy platformy
+              pro stavbu chatbotů. Platforma vznikala od roku 2020,
+              ale i když šlo ještě o "pre-LLM" éru, produkt již používal nejmodernější
+              intent-driven dialog management.
+              <br /><br />
+              Jen během jednoho roku vznikl kolem platformy celý produktový end-to-end tým
+              a od nuly se dostal k pilotním enterprise zákazníkům.
+              Během dalších let platformu používali firmy napříč
+              odvětvími - telekomunikace, aerolinky, banky i státní instituce.
+              Virtuální agenti našim zákazníkům odbavovali desítky tisíc zakazníckých interakcí měsíčně.
+            </p>
           </div>
-        </div>
+          <figure class="project-showcase order-1 lg:order-2">
+            <img src="./botbuilder.png" alt="CXone Bot Builder – Enterprise Conversational AI" loading="lazy" />
+          </figure>
+        </article>
+
+        <!-- Project 4: NaviRider -->
+        <article
+          class="flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-20 xl:gap-28 items-start lg:items-center">
+          <div class="order-2 lg:order-1 lg:max-w-md">
+            <div class="font-mono text-[10px] uppercase tracking-widest text-sec mb-4">04</div>
+            <h3 class="text-4xl font-medium tracking-tight mb-2">NaviRider</h3>
+            <p class="text-primary font-mono text-[11px] uppercase tracking-widest mb-6">
+              Startup &bullet; Acquired by Rever.co
+            </p>
+            <p class="text-sec mb-8 text-sm leading-relaxed max-w-md">
+              Motorkářská navigační platforma navržená od základu pro potřeby jezdců. Na rozdíl od běžných navigací se
+              zaměřovala na zážitek z jízdy - vyhledávání atraktivních tras,
+              navigaci po klikatých silnicích, sdílení jízd a propojení komunity motorkářů.
+              Platforma kombinovala navigaci, sociální funkce, plánování výletů
+              bezpečnostní prvky do jedné mobilní aplikace.
+              <br /><br />
+              Startup byl, kromě jiného, součástí ESA BIC akcelerátoru.
+              Dosáhl na více než 15 tisíc registrovaných jezdců a stovky aktivních uživatelů denně.
+              <br /><br />
+              Startup skončil častečnou akvizicí americkou konkurencí <a href="https://rever.co"
+                target="_blank">Rever.co</a>.
+              Technologie Twisty Routing, kterou jsme vyvinuli pro NaviRider, je dodnes součástí prémiového plánu
+              Rever.co pro platící uživatele.
+            </p>
+          </div>
+          <figure class="project-showcase order-1 lg:order-2">
+            <img src="./navirider.png" alt="NaviRider – navigace pro motorkáře" loading="lazy" />
+          </figure>
+        </article>
+
+        <!-- Project 5: Wedd.cz -->
+        <article
+          class="flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-20 xl:gap-28 items-start lg:items-center">
+          <div class="order-2 lg:order-1 lg:max-w-md">
+            <div class="font-mono text-[10px] uppercase tracking-widest text-sec mb-4">05</div>
+            <h3 class="text-4xl font-medium tracking-tight mb-2">
+              <a href="https://wedd.cz" target="_blank">Wedd.cz</a>
+            </h3>
+            <p class="text-primary font-mono text-[11px] uppercase tracking-widest mb-6">
+              Corporate venture of <a href="https://ladys.cz" target="_blank">ladys.cz</a>
+            </p>
+            <p class="text-sec mb-8 text-sm leading-relaxed max-w-md">
+              Komplexní platforma pro svatební salony, která pomáhá řídit rezervace, zkoušky, zakázky, kolekce i úpravy
+              šatů - z jednoho místa.
+              Díky přehlednému kalendáři a centralizované evidenci mají salony lepší přehled o provozu, méně
+              administrativy a
+              více času na své zákazníky.
+              <br /><br />
+              Vznikl původně jako provozní systém pro svatebni salon <a href="https://ladys.cz"
+                target="_blank">ladys.cz</a>,
+              no jeho funkčnost a flexibilita brzy přitáhla i další salony.
+              Aktuálně platformu používá několik salónů v Čechách v tzv. subscription modelu a počet salonů postupně
+              roste.
+            </p>
+          </div>
+          <figure class="project-showcase order-1 lg:order-2">
+            <img src="./wedd.png" alt="Wedd.cz – platforma pro svatební salony" loading="lazy" />
+          </figure>
+        </article>
 
         <!-- Project 3: Ydoca -->
-        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div class="lg:col-span-4 order-2 lg:order-1">
+        <!-- <article
+          class="flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-20 xl:gap-28 items-start lg:items-center">
+          <div class="order-2 lg:order-1 lg:max-w-md">
+
+            <div class="font-mono text-[10px] uppercase tracking-widest text-sec mb-4">03</div>
             <h3 class="text-4xl font-medium tracking-tight mb-2">Ydoca</h3>
             <p class="text-blue font-mono text-[11px] uppercase tracking-widest mb-6">AI RFP Platforma</p>
-            <p class="text-sec mb-8 text-sm leading-relaxed">B2B platforma specializovaná na zpracování obsáhlých
+            <p class="text-sec mb-8 text-sm leading-relaxed max-w-md">B2B platforma specializovaná na zpracování
+              obsáhlých
               tendrových dokumentů (RFP) a automatizaci tvorby kvalifikovaných odpovědí pomocí LLM.</p>
-            <div class="bl-subtle pl-4">
+            <div class="bl-subtle pl-4 max-w-md">
               <span class="font-mono text-[10px] uppercase tracking-widest text-sec block mb-2">Moje role</span>
               <span class="font-medium text-sm">Spoluzakladatel, CTO, produktová strategie a softwarová
                 architektura.</span>
             </div>
           </div>
-          <div
-            class="lg:col-span-8 h-[450px] bg-white border border-border abstract-grid flex flex-col justify-center items-center relative overflow-hidden order-1 lg:order-2">
-            <!-- Clean Document Parser UI -->
-            <div class="w-[85%] bg-bg border border-border flex h-72 shadow-sm">
-              <!-- Left: Doc -->
-              <div class="w-1/2 border-r border-border p-6 bg-white relative">
-                <div class="font-mono text-[9px] uppercase tracking-widest text-sec mb-6">RFP_Requirements.pdf</div>
-                <div class="space-y-3">
-                  <div class="h-2 bg-border w-full"></div>
-                  <div class="h-2 bg-border w-[90%]"></div>
-                  <div class="h-2 bg-border w-[80%] mb-6"></div>
-
-                  <div class="p-2 border border-blue/30 bg-blue/5 relative">
-                    <div class="absolute -left-1 top-0 w-0.5 h-full bg-blue"></div>
-                    <div class="h-2 bg-text w-[70%] mb-2"></div>
-                    <div class="h-2 bg-text w-[60%]"></div>
-                  </div>
-                </div>
-              </div>
-              <!-- Right: AI Logic -->
-              <div class="w-1/2 p-6 flex flex-col justify-center">
-                <div class="font-mono text-[9px] uppercase tracking-widest text-blue mb-2">AI Extraction</div>
-                <div class="text-sm font-medium mb-2 leading-snug">Compliance & Security Policy</div>
-                <p class="text-xs text-sec font-mono mb-4">Source: Information_Security_2025.docx</p>
-                <div
-                  class="mt-auto border border-border p-3 bg-white text-[10px] font-mono uppercase text-sec flex justify-between">
-                  <span>Confidence</span>
-                  <span class="text-text font-bold">High (98%)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: CXone Bot Builder -->
-        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div class="lg:col-span-4 lg:col-start-9 order-2 lg:order-2">
-            <h3 class="text-4xl font-medium tracking-tight mb-2">CXone Bot Builder</h3>
-            <p class="text-primary font-mono text-[11px] uppercase tracking-widest mb-6">Enterprise Conversational AI
-            </p>
-            <p class="text-sec mb-8 text-sm leading-relaxed">Flow-oriented platforma pro vizuální návrh, správu,
-              nasazení a testování inteligentních chatbotů a automatizovaných zákaznických konverzací.</p>
-            <div class="bl-subtle pl-4">
-              <span class="font-mono text-[10px] uppercase tracking-widest text-sec block mb-2">Moje role</span>
-              <span class="font-medium text-sm">Vývoj produktu a technologií v enterprise korporátním prostředí.</span>
-            </div>
-          </div>
-          <div
-            class="lg:col-span-8 lg:col-start-1 h-[450px] bg-[#FAFAFA] border border-border flex justify-center items-center relative overflow-hidden order-1 lg:order-1">
-            <div class="absolute inset-0 abstract-grid opacity-50"></div>
-            <!-- Conversation flow workspace visual representation -->
-            <div
-              class="w-[85%] bg-white border border-border p-5 shadow-sm relative z-10 flex flex-col justify-between h-64">
-              <div
-                class="flex justify-between items-center border-b border-border pb-3 font-mono text-[9px] uppercase tracking-widest text-sec mb-3">
-                <span>Bot Workspace Flow</span>
-                <span>[TRIGGERS_ACTIVE]</span>
-              </div>
-              <div class="grid grid-cols-3 gap-4 items-center flex-grow">
-                <div class="border border-border p-3 bg-bg flex flex-col gap-1">
-                  <span class="font-mono text-[8px] text-sec uppercase">[TRIGGER]</span>
-                  <span class="font-bold text-xs text-text">User Intent: Refund</span>
-                </div>
-                <div class="border-2 border-primary p-3 bg-white relative flex flex-col gap-1">
-                  <div class="absolute -top-2 left-3 bg-primary text-white font-mono text-[7px] uppercase px-1">Logic
-                    check</div>
-                  <span class="font-mono text-[8px] text-primary uppercase">[API_CALL]</span>
-                  <span class="font-bold text-xs text-text">Verify Order Id</span>
-                </div>
-                <div class="border border-border p-3 bg-bg flex flex-col gap-1">
-                  <span class="font-mono text-[8px] text-sec uppercase">[ACTION]</span>
-                  <span class="font-bold text-xs text-text">Trigger Refund</span>
-                </div>
-              </div>
-              <!-- Connector dotted arrows represented via custom markup elements -->
-              <div class="flex justify-between px-12 text-primary font-bold font-mono text-xs select-none">
-                <span>&rarr;</span>
-                <span>&rarr;</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5: NaviRider -->
-        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          <div class="lg:col-span-4 order-2 lg:order-1">
-            <h3 class="text-4xl font-medium tracking-tight mb-2">NaviRider</h3>
-            <p class="text-text font-mono text-[11px] uppercase tracking-widest mb-6">Speciální navigace pro motorkáře
-            </p>
-            <p class="text-sec mb-8 text-sm leading-relaxed">Navigační aplikace pro motorkáře navržená tak, aby
-              nehledala nejrychlejší cestu, ale vizuálně i zážitkově nejzajímavější trasu s kvalitním povrchem.</p>
-            <div class="bl-subtle pl-4">
-              <span class="font-mono text-[10px] uppercase tracking-widest text-sec block mb-2">Moje role</span>
-              <span class="font-medium text-sm">Návrh produktu, design aplikace, backend a komplexní routovací
-                logika.</span>
-            </div>
-          </div>
-          <div
-            class="lg:col-span-8 h-[450px] bg-[#141517] flex justify-center items-center relative overflow-hidden order-1 lg:order-2">
-            <!-- Abstract Map UI -->
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
-              <!-- Topographic abstraction -->
-              <path d="M-100 200 Q 200 100 400 300 T 900 100" fill="none" stroke="rgba(255,255,255,0.05)"
-                stroke-width="2" />
-              <path d="M-100 250 Q 200 150 400 350 T 900 150" fill="none" stroke="rgba(255,255,255,0.05)"
-                stroke-width="2" />
-              <path d="M-100 300 Q 200 200 400 400 T 900 200" fill="none" stroke="rgba(255,255,255,0.05)"
-                stroke-width="2" />
-
-              <!-- Route -->
-              <path d="M100 350 C 300 300, 200 100, 500 200 C 650 250, 600 50, 800 150" fill="none" stroke="#3155FF"
-                stroke-width="4" stroke-linecap="square" />
-              <!-- Position marker -->
-              <circle cx="500" cy="200" r="6" fill="#fff" />
-              <circle cx="500" cy="200" r="16" fill="none" stroke="#3155FF" stroke-width="1" opacity="0.5" />
-            </svg>
-
-            <!-- Overlay Data block -->
-            <div class="absolute bottom-8 left-8 bg-[#1B1D22] border border-white/10 p-5 w-64">
-              <div class="font-mono text-[9px] uppercase tracking-widest text-white/50 mb-1">Current Route</div>
-              <div class="text-white text-lg font-medium tracking-tight mb-4">Grossglockner Pass</div>
-              <div
-                class="flex justify-between items-center text-xs font-mono text-white/70 bt-subtle border-white/10 pt-3">
-                <span class="uppercase">Curviness</span>
-                <span class="text-[#3155FF] font-bold">Max</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
+          <figure class="project-showcase order-1 lg:order-2">
+            <img src="./ydoca.png" alt="Ydoca – AI RFP Platforma" loading="lazy" />
+          </figure>
+        </article> -->
       </div>
     </div>
   </section>
@@ -714,7 +704,7 @@
           <div>
             <h3 class="font-mono text-[11px] uppercase tracking-widest text-primary mb-3">Nejsem agentura</h3>
             <p class="text-white/60 text-sm leading-relaxed">Spolupráce nekončí hezkou PowerPoint prezentací. Mým cílem
-              je dostat reálný, klikatelný produkt k prvním zákazníkům.</p>
+              je dostat reálný, hotový produkt k prvním zákazníkům.</p>
           </div>
           <div>
             <h3 class="font-mono text-[11px] uppercase tracking-widest text-primary mb-3">Nejsem dev-shop</h3>
@@ -753,8 +743,20 @@
           <p>Pracoval jsem od malých rychlých startupů až po masivní enterprise B2B platformy. Vím, co znamená psát kód,
             i to, co obnáší navrhnout udržitelný byznys model. Teď spojuji tyto dva světy do jednoho.</p>
 
+          <a href="https://www.linkedin.com/in/mbukovy/" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:opacity-75 transition-opacity"
+            aria-label="LinkedIn profil">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3"
+              aria-hidden="true">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+            LinkedIn
+          </a>
+
           <div class="my-12 py-8 bt-subtle bb-subtle">
-            <p class="font-serif italic text-3xl text-text leading-tight tracking-tight">"Nečekám na hotové zadání.
+            <p class="font-serif italic text-3xl text-text leading-tight tracking-tight">"Nečekám na hotové zadání,
+              tvořím ho.
               Pomáhám firmám zjistit, co má skutečně smysl postavit - a následně to dostanu do reality."</p>
           </div>
         </div>
@@ -774,25 +776,6 @@
             <h3 class="font-bold mb-3 font-mono text-[10px] uppercase tracking-widest">Technologie</h3>
             <p class="text-sm text-sec leading-relaxed">Architektura systémů, integrace, AI modely a samotný technický
               vývoj.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lg:col-span-4 lg:col-start-9 flex justify-center lg:justify-end items-start mt-8 lg:mt-0">
-        <!-- Minimalist sophisticated secondary profile frame -->
-        <div
-          class="w-full aspect-[3/4] bg-[#FAFAFA] border border-border relative overflow-hidden flex flex-col justify-between p-6 abstract-grid shadow-sm">
-          <div class="font-mono text-[9px] uppercase tracking-widest text-sec">System Id: 0X-MB</div>
-
-          <div class="w-full h-1/2 border border-border relative bg-bg">
-            <div class="absolute inset-0 bg-gradient-to-tr from-border to-transparent opacity-30"></div>
-            <div class="absolute inset-0 flex items-center justify-center font-serif italic text-2xl text-sec/40">Michal
-              Bukový</div>
-          </div>
-
-          <div>
-            <h3 class="text-2xl font-medium tracking-tight mb-1">Michal Bukový</h3>
-            <p class="font-mono text-[10px] uppercase tracking-widest text-sec">Venture Builder & Architekt</p>
           </div>
         </div>
       </div>
@@ -844,17 +827,33 @@
         mohla vytvořit?</h2>
 
       <p class="text-xl md:text-2xl text-white/80 mb-16 font-light max-w-2xl mx-auto">
-        Možná už máte zákazníky, technologie, jedinečná data i distribuční síť. Chybí jen produktový mechanismus, který to celé spojí
+        Možná už máte zákazníky, technologie, jedinečná data i distribuční síť. Chybí jen produktový mechanismus, který
+        to celé spojí
         dohromady.
       </p>
 
-      <a href="mailto:kontakt@example.com"
-        class="inline-block bg-white text-primary px-12 py-5 pill-btn text-sm font-bold uppercase tracking-widest hover:bg-bg transition-colors mb-12">
-        Probrat příležitost
+      <a href="mailto:mail@mbukovy.eu"
+        class="inline-flex items-center gap-3 bg-white text-primary px-12 py-5 mx-6 pill-btn text-sm font-bold uppercase tracking-widest hover:bg-bg transition-colors mb-12">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+          class="w-4 h-4 shrink-0" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+        </svg>
+        Email
+      </a>
+      <a href="https://booking.akiflow.com/mbukovy-30min" target="_blank"
+        class="inline-flex items-center gap-3 bg-white text-primary px-12 py-5 pill-btn text-sm font-bold uppercase tracking-widest hover:bg-bg transition-colors mb-12">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+          class="w-4 h-4 shrink-0" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+        </svg>
+        Úvodní hovor
       </a>
 
       <div class="max-w-md mx-auto text-sm text-white/60 font-mono leading-relaxed">
-        [&nbsp;Úvodní hovor je zdarma a není prodejní prezentace mých služeb. Podíváme se na vaši firmu, její skryté výhody a
+        [&nbsp;Úvodní hovor je zdarma a není prodejní prezentace mých služeb. Podíváme se na vaši firmu, její skryté
+        výhody a
         probereme potenciální směry nového produktu.&nbsp;]
       </div>
     </div>
@@ -869,9 +868,9 @@
     </div>
 
     <div class="flex justify-start md:justify-center gap-8 text-[11px] font-mono uppercase tracking-widest text-text">
-      <a href="#"
+      <a href="https://www.linkedin.com/in/mbukovy/" target="_blank"
         class="hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1">LinkedIn</a>
-      <a href="#"
+      <a href="mailto:mail@mbukovy.eu" target="_blank"
         class="hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1">Email</a>
       <a href="#projekty"
         class="hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1">Vybrané
