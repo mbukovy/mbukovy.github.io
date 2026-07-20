@@ -1,0 +1,4 @@
+# LLM context
+
+The standardized LLM context file for this website is available at:
+https://mbukovy.eu/llms.txt

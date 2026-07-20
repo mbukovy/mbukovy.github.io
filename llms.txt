@@ -1,0 +1,109 @@
+# Michal Bukový
+
+> Product & Venture Builder, který pomáhá zavedeným firmám najít a postavit nové digitální produkty nad tím, co už mají: zákazníky, data, know-how a distribuci. Spolupráce pokrývá cestu od první příležitosti až po funkční produkt.
+
+- Canonical website: https://mbukovy.eu/
+- Primary language: Czech
+- Locations: Praha, Bratislava, remote
+- Experience: 15+ let
+
+## Zaměření
+
+Michal hledá nové obchodní příležitosti nad existujícími výhodami zavedených firem:
+
+- Zákazníci: nové služby, marketplace platformy, subscription modely nebo produkty pro nový segment.
+- Data: tržní benchmarking, predikční nástroje a datová inteligence.
+- Know-how: SaaS, B2B nástroje a produktizovaná expertíza založená na interních procesech.
+- Distribuce: produkty, které mohou využít existující pozici firmy na trhu a levnější přístup k uživatelům.
+
+Nejvhodnější jsou zavedené firmy s ambicí diverzifikovat příjmy, jejichž značka, komunita nebo tržní dosah jim dávají náskok před startupem budovaným od nuly. Typicky jde o vertikální e-commerce, B2B a provozní software, specializovaný retail, B2B marketplaces, sítě a servisní firmy.
+
+- [Příležitost a vhodnost spolupráce](https://mbukovy.eu/#prilezitost)
+
+## Služby a proces
+
+### 1. Revenue Opportunity Sprint — Objevit
+
+Pro firmy, které mají silná aktiva, ale zatím nevidí konkrétní produkt. Během několika týdnů se zmapuje zákaznická báze, data, distribuční kanály a technologie. Výsledkem je jedna silná produktová hypotéza s jasným zákazníkem, problémem a byznysovým modelem.
+
+Výstup: venture thesis, byznysový model a plán ověření.
+
+### 2. Venture Validation — Ověřit
+
+Pro firmy s jasnou produktovou vizí, které nechtějí investovat naslepo. Rozhovory, testy ochoty platit, prototypy a pilotní provozy ověří problém, distribuční kanál a zájem trhu před nákladným vývojem.
+
+Výstup: důkaz trhu a rozhodnutí produkt postavit, upravit, nebo zastavit.
+
+### 3. Venture Build — Postavit
+
+Pro firmy připravené dostat ověřený digitální produkt na trh. Spolupráce zahrnuje návrh byznysové logiky a softwarové architektury, realizaci MVP a vedení interního týmu nebo implementačních partnerů.
+
+Výstup: funkční MVP a první aktivní uživatelé.
+
+Doplňkové formy spolupráce: produktová strategie, návrh a vývoj MVP, softwarová architektura, Fractional CTO a účelné AI/LLM integrace.
+
+- [Průběh spolupráce](https://mbukovy.eu/#sluzby)
+
+## Vybrané projekty
+
+### Cash Optimizer
+
+Spin-off moderního finančního oddělení Dype.cz a nástroj pro optimalizaci cashflow malých a středních firem. Michal převzal návrh a vývoj od jednoduchého prototypu po MVP. Během tří měsíců vzniklo MVP testované na reálných zákaznících. Dlouhodobou vizí je autonomní řízení cashflow s využitím AI, inteligentního úvěrování a investování kapitálu.
+
+- https://cashopti.com/
+- https://dype.cz/
+
+### Chatbot Builder a CXone Bot Builder
+
+Chatbot Builder vznikl jako vedlejší produkt Brand Embassy pro návrh, testování a nasazování chatbotů bez programování. Po akvizici Brand Embassy společností NICE se vyvinul v CXone Bot Builder, AI-native no-code nástroj pro virtuální agenty.
+
+První generace během tří let obsloužila stovky tisíc konverzací bez lidského zásahu. Kolem nástupnické platformy vznikl během jednoho roku kompletní produktový tým a první enterprise piloty. Platformu následně využívaly telekomunikace, aerolinky, banky a státní instituce pro desítky tisíc zákaznických interakcí měsíčně.
+
+- https://www.nice.com/
+
+### NaviRider
+
+Mobilní motorkářská navigace zaměřená na atraktivní trasy, klikaté silnice, plánování výletů, bezpečnostní prvky a komunitní funkce. Pro produkt vznikla vlastní technologie Twisty Routing.
+
+Startup prošel akcelerátorem ESA BIC, získal přes 15 tisíc registrovaných jezdců a stovky aktivních uživatelů denně. Po částečné akvizici společností Rever.co zůstal Twisty Routing součástí jejího prémiového plánu.
+
+- https://rever.co/
+
+### Wedd.cz
+
+Subscription platforma pro svatební salony, která řídí rezervace, zkoušky, zakázky, kolekce a úpravy šatů. Původně vznikla jako interní provozní systém salonu ladys.cz, následně získala další zákazníky a dnes ji používá několik salonů v Česku.
+
+- https://wedd.cz/
+- https://ladys.cz/
+
+### Previo Mobile
+
+Transformace staršího interního CRM a mobilních aplikací Previa z prototype.js, jQuery a externě vyvíjených nativních aplikací na Vue.js a PWA.
+
+Michal vedl přechod CRM na Vue.js, transformaci mobilních aplikací na PWA, zaškolení interních vývojářů a předání dalšího rozvoje internímu týmu. Dvě ze tří aplikací byly přepsány a nasazeny za méně než rok. Previo se zbavilo závislosti na drahém externím vývoji a následně převedlo na PWA i třetí aplikaci.
+
+- [Všechny vybrané projekty](https://mbukovy.eu/#projekty)
+
+## Způsob spolupráce
+
+- Nejde o agenturní prezentaci; cílem je dostat hotový produkt k prvním zákazníkům.
+- Firma nemusí přijít s hotovým zadáním. Tvorba zadání a strategie je součástí procesu.
+- Každý krok má vést k jasnému obchodnímu rozhodnutí a odstranění kritických rizik.
+- Externí venture přístup doplňuje interní produktové týmy zatížené stávající roadmapou, zákazníky a provozem.
+
+## O Michalovi
+
+Michal Bukový má více než 15 let zkušeností s návrhem a stavbou softwarových produktů v rolích vývojáře, softwarového architekta, CTO, zakladatele a produktového partnera. Pracoval se startupy i rozsáhlými enterprise B2B platformami a propojuje produktovou strategii, byznysový model a technickou realizaci.
+
+- Produkt: strategie, uživatelský výzkum, návrh MVP a tržní validace.
+- Byznys: monetizace, go-to-market strategie a ekonomika produktu.
+- Technologie: systémová architektura, integrace, AI modely a technický vývoj.
+- [O mně](https://mbukovy.eu/#o-mne)
+- [LinkedIn](https://www.linkedin.com/in/mbukovy/)
+
+## Kontakt
+
+- [Rezervovat úvodní hovor](https://booking.akiflow.com/mbukovy-30min)
+- Email: mail@mbukovy.eu
+
+Úvodní hovor je zdarma a není prodejní prezentací. Slouží k diskusi o existujících výhodách firmy a potenciálních směrech nového digitálního produktu.
