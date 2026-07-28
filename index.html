@@ -13,6 +13,7 @@
 
   <link rel="canonical" href="https://mbukovy.eu/">
   <link rel="alternate" hreflang="cs" href="https://mbukovy.eu/">
+  <link rel="alternate" hreflang="en" href="https://mbukovy.eu/en/">
   <link rel="alternate" hreflang="x-default" href="https://mbukovy.eu/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
@@ -283,10 +284,15 @@
         <a href="#o-mne" class="hover:text-primary transition-colors">O mně</a>
       </div>
 
-      <div class="hidden md:block font-mono text-[11px] uppercase tracking-widest font-medium">
-        <a href="#kontakt" class="hover:text-primary transition-colors">
+      <div class="flex items-center gap-5 md:gap-7 font-mono text-[11px] uppercase tracking-widest font-medium">
+        <a href="#kontakt" class="hidden md:block hover:text-primary transition-colors">
           Probrat příležitost &rarr;
         </a>
+        <div role="navigation" aria-label="Výběr jazyka" class="flex items-center gap-2" id="language-switcher">
+          <a href="/" aria-current="page" class="font-bold text-primary border-b border-primary pb-0.5">CS</a>
+          <span aria-hidden="true" class="text-sec">/</span>
+          <a href="/en/" lang="en" hreflang="en" class="hover:text-primary transition-colors">EN</a>
+        </div>
       </div>
     </div>
   </nav>
