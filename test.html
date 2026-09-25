@@ -149,6 +149,66 @@
       color: var(--accent);
     }
 
+    .url-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .url-form label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .url-form input {
+      min-width: 0;
+      height: 52px;
+      padding: 0 16px;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      background: var(--surface);
+      color: var(--text);
+      font: 0.8rem "IBM Plex Mono", monospace;
+    }
+
+    .url-form input:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(255, 77, 0, 0.18);
+      outline-offset: 0;
+    }
+
+    .url-form button {
+      min-height: 52px;
+      padding: 0 24px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font: 600 0.68rem "IBM Plex Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .url-form button:hover,
+    .url-form button:focus-visible {
+      border-color: var(--text);
+      background: var(--text);
+    }
+
+    .url-error {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: #a22c00;
+      font-size: 0.75rem;
+    }
+
     .screen-shell {
       padding: 10px;
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -202,6 +262,30 @@
       display: block;
       border: 0;
       background: white;
+    }
+
+    .screen-placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      padding: 32px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .screen-placeholder strong {
+      color: var(--text);
+      font-size: clamp(1.3rem, 3vw, 2.2rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+    }
+
+    .screen-placeholder span {
+      margin-top: 8px;
+      font: 0.68rem "IBM Plex Mono", monospace;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .services {
@@ -390,6 +474,14 @@
         gap: 14px;
       }
 
+      .url-form {
+        grid-template-columns: 1fr;
+      }
+
+      .url-error {
+        grid-column: 1;
+      }
+
       .screen-shell {
         width: calc(100% + 24px);
         margin-left: -12px;
@@ -468,20 +560,29 @@
           <p class="eyebrow">Ukázka / Live produkt</p>
           <h2 id="showcase-title">Produkt, který si můžete rovnou vyzkoušet.</h2>
         </div>
-        <a href="https://dev.cashopti.com/embed/V9qxb8EJgefgplDZf8w68CvH4hwKejfA8xNuOL3yzp0?email=dype@cashopti.com"
-          target="_blank" rel="noopener noreferrer">Otevřít na celou obrazovku &nearr;</a>
+        <a id="open-showcase" href="#" target="_blank" rel="noopener noreferrer" hidden>Otevřít na celou obrazovku
+          &nearr;</a>
       </div>
+      <form class="url-form" id="showcase-form">
+        <label for="showcase-url" class="eyebrow">URL produktu</label>
+        <input id="showcase-url" name="url" type="url" inputmode="url" autocomplete="url"
+          placeholder="https://example.com" aria-describedby="url-error" required>
+        <button type="submit">Zobrazit ukázku &rarr;</button>
+        <p class="url-error" id="url-error" role="alert" hidden></p>
+      </form>
       <div class="screen-shell">
         <div class="screen-bar" aria-hidden="true">
           <div class="screen-dots"><span></span><span></span><span></span></div>
           <span>Interactive demo</span>
-          <span class="screen-status">Live</span>
+          <span class="screen-status" id="screen-status">Čeká na URL</span>
         </div>
         <div class="screen">
-          <iframe
-            src="https://dev.cashopti.com/embed/V9qxb8EJgefgplDZf8w68CvH4hwKejfA8xNuOL3yzp0?email=dype@cashopti.com"
-            title="Interaktivní ukázka produktu Cashopti" loading="lazy"
-            allow="clipboard-read; clipboard-write; fullscreen" allowfullscreen></iframe>
+          <div class="screen-placeholder" id="screen-placeholder">
+            <strong>Vložte URL produktu</strong>
+            <span>Náhled se zobrazí zde</span>
+          </div>
+          <iframe id="showcase-frame" title="Interaktivní ukázka produktu" loading="lazy"
+            allow="clipboard-read; clipboard-write; fullscreen" allowfullscreen hidden></iframe>
         </div>
       </div>
     </section>
@@ -560,6 +661,39 @@
     <span>Michal Bukový / Product &amp; Venture Builder</span>
     <span>Praha &middot; Bratislava &middot; Remote</span>
   </footer>
+  <script>
+    const showcaseForm = document.getElementById('showcase-form');
+    const showcaseInput = document.getElementById('showcase-url');
+    const showcaseFrame = document.getElementById('showcase-frame');
+    const showcasePlaceholder = document.getElementById('screen-placeholder');
+    const showcaseStatus = document.getElementById('screen-status');
+    const showcaseLink = document.getElementById('open-showcase');
+    const urlError = document.getElementById('url-error');
+
+    showcaseForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      urlError.hidden = true;
+
+      try {
+        const submittedUrl = new URL(showcaseInput.value.trim());
+
+        if (!['http:', 'https:'].includes(submittedUrl.protocol)) {
+          throw new Error('unsupported protocol');
+        }
+
+        showcaseFrame.src = submittedUrl.href;
+        showcaseFrame.hidden = false;
+        showcasePlaceholder.hidden = true;
+        showcaseStatus.textContent = 'Live';
+        showcaseLink.href = submittedUrl.href;
+        showcaseLink.hidden = false;
+      } catch {
+        urlError.textContent = 'Zadejte platnou URL začínající http:// nebo https://.';
+        urlError.hidden = false;
+        showcaseInput.focus();
+      }
+    });
+  </script>
 </body>
 
 </html>
